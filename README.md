@@ -1,4 +1,6 @@
-# bun-app
+# bun-leaning english repo
+
+# by Tran Quang(jarvis219)
 
 To install dependencies:
 
@@ -9,7 +11,7 @@ bun install
 To run:
 
 ```bash
-bun run index.ts
+bun dev
 ```
 
 This project was created using `bun init` in bun v1.0.2. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
