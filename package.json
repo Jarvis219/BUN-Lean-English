@@ -1,0 +1,19 @@
+{
+  "name": "bun-app",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/app.ts"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/jsonwebtoken": "^9.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^7.5.3"
+  }
+}
