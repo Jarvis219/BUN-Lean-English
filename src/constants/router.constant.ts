@@ -6,4 +6,6 @@ export const categoriesRouter = {
 export const authRouter = {
   register: "/auth/register",
   login: "/auth/login",
+  loginWithGoogle: "/auth/login/google",
+  logout: "/auth/logout",
 };

@@ -1,4 +1,4 @@
-import { prefixDefaultApi } from "@/constants";
+import { HTTP_CODE_ERRORS, prefixDefaultApi } from "@/constants";
 import { categoryGET } from "@/routes/category";
 
 export const RouterGET = (req: Request): Response => {
@@ -12,6 +12,6 @@ export const RouterGET = (req: Request): Response => {
     case categoriesRouter:
       return categoryGET({ router });
     default:
-      return new Response("Not Found", { status: 404 });
+      return new Response("Not Found", { status: HTTP_CODE_ERRORS.NOT_FOUND });
   }
 };

@@ -1,3 +1,4 @@
+import { HTTP_CODE_ERRORS } from "@/constants";
 import { verify } from "jsonwebtoken";
 
 export const authMiddleware = (
@@ -7,14 +8,14 @@ export const authMiddleware = (
   const token = req.headers.get("Authorization");
   if (!token) {
     return new Response(JSON.stringify({ message: "Missing token" }), {
-      status: 401,
+      status: HTTP_CODE_ERRORS.UNAUTHORIZED,
     });
   }
 
   const [_, tokenValue] = token.split("Bearer ");
   if (!tokenValue) {
     return new Response(JSON.stringify({ message: "Missing token" }), {
-      status: 401,
+      status: HTTP_CODE_ERRORS.UNAUTHORIZED,
     });
   }
 
@@ -29,7 +30,7 @@ export const authMiddleware = (
     req.headers.set("userId", _id);
   } catch (error) {
     return new Response(JSON.stringify({ message: "Token is not valid" }), {
-      status: 401,
+      status: HTTP_CODE_ERRORS.UNAUTHORIZED,
     });
   }
 

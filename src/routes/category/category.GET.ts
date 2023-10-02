@@ -1,4 +1,4 @@
-import { categoriesRouter } from "@/constants";
+import { HTTP_CODE_ERRORS, categoriesRouter } from "@/constants";
 import { getRouter } from "@/utils";
 
 interface ICategoriesRouter {
@@ -12,7 +12,7 @@ const categoryGET = ({ router }: ICategoriesRouter) => {
     case getRouter(router, categoriesRouter.id).routerMatch:
       return new Response("Categories ID");
     default:
-      return new Response("Not Found", { status: 404 });
+      return new Response("Not Found", { status: HTTP_CODE_ERRORS.NOT_FOUND });
   }
 };
 

@@ -1,3 +1,4 @@
+import { HTTP_CODE_ERRORS } from "@/constants";
 import { Category } from "@/models";
 import { isEmpty } from "@/utils";
 
@@ -7,13 +8,13 @@ export const createCategory = async (req: Request): Promise<Response> => {
 
   if (isEmpty(body)) {
     return new Response(JSON.stringify({ message: "Missing field" }), {
-      status: 400,
+      status: HTTP_CODE_ERRORS.BAD_REQUEST,
     });
   }
 
   if (!userId) {
     return new Response(JSON.stringify({ message: "Missing userId" }), {
-      status: 400,
+      status: HTTP_CODE_ERRORS.BAD_REQUEST,
     });
   }
 
@@ -23,7 +24,7 @@ export const createCategory = async (req: Request): Promise<Response> => {
   const nameIsExit = await Category.findOne({ name: body.name });
   if (nameIsExit) {
     return new Response(JSON.stringify({ message: "Category name is exist" }), {
-      status: 400,
+      status: HTTP_CODE_ERRORS.BAD_REQUEST,
     });
   }
 
@@ -49,7 +50,7 @@ export const updateCategory = async ({
 
   if (isEmpty(body)) {
     return new Response(JSON.stringify({ message: "Missing field" }), {
-      status: 400,
+      status: HTTP_CODE_ERRORS.BAD_REQUEST,
     });
   }
 

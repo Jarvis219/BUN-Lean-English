@@ -1,4 +1,4 @@
-import { prefixDefaultApi } from "@/constants";
+import { HTTP_CODE_ERRORS, prefixDefaultApi } from "@/constants";
 import { authPOST } from "@/routes/auth";
 import { categoryPOST } from "@/routes/category";
 
@@ -18,6 +18,6 @@ export const RouterPOST = (req: Request): Promise<Response> | Response => {
     case routerMap.register:
       return authPOST({ request: req, router });
     default:
-      return new Response("Not Found", { status: 404 });
+      return new Response("Not Found", { status: HTTP_CODE_ERRORS.NOT_FOUND });
   }
 };
