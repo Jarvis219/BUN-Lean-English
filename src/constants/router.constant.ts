@@ -9,3 +9,8 @@ export const authRouter = {
   loginWithGoogle: "/auth/login/google",
   logout: "/auth/logout",
 };
+
+export const vocabularyRouter = {
+  default: "/vocabulary",
+  id: "/vocabulary/:id",
+};
